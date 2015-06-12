@@ -23,6 +23,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
 
 typedef NS_ENUM(NSInteger, PBJVideoPlayerPlaybackState) {
     PBJVideoPlayerPlaybackStateStopped = 0,
@@ -52,6 +53,8 @@ typedef NS_ENUM(NSInteger, PBJVideoPlayerBufferingState) {
 @property (nonatomic, readonly) PBJVideoPlayerBufferingState bufferingState;
 
 @property (nonatomic, readonly) NSTimeInterval maxDuration;
+@property (nonatomic, readonly) NSTimeInterval currentTime;
+- (void)changeSeekTime:(CMTime)newTime;
 
 - (void)playFromBeginning;
 - (void)playFromCurrentTime;

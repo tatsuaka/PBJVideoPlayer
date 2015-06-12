@@ -157,6 +157,16 @@ static NSString * const PBJVideoPlayerControllerReadyForDisplay = @"readyForDisp
     return maxDuration;
 }
 
+- (NSTimeInterval)currentTime {
+    NSTimeInterval time = CMTimeGetSeconds(_playerItem.currentTime);
+    return time;
+}
+
+- (void)changeSeekTime:(CMTime)newTime
+{
+    [_player seekToTime:newTime];
+}
+
 - (void)_setAsset:(AVAsset *)asset
 {
     if (_asset == asset)
